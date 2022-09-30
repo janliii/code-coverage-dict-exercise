@@ -10,9 +10,18 @@ def test_init():
 
     ada = create_student(name, level, courses)
 
+
     assert ada["name"] == name
     assert ada["level"] == level
     assert ada["courses"] == courses
+
+def test_falsy_courses_becomes_empty_list():
+    name = []
+    level = []
+    courses = False
+
+    empty_student = create_student(name, level, courses)
+    assert empty_student["courses"] == []
 
 def test_add_class():
     new_class = 'Intro to Feminism'
