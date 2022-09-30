@@ -1,3 +1,4 @@
+from sqlite3 import adapt
 from student.student import (
     create_student, add_class, get_num_classes, summary, 
     get_student_with_more_classes
@@ -53,7 +54,11 @@ def test_get_student_with_more_classes():
         ["mathematics", "foundations of computing"]
     )
 
-    # TODO: write assertions
+    result = get_student_with_more_classes(charles, ada)
+    result2 = get_student_with_more_classes(ada, charles)
+
+    assert result == ada
+    assert result2 == ada
 
 
 # TODO: Write additional tests to reach 100% test coverage
